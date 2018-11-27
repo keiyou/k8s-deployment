@@ -60,7 +60,7 @@ spec:
                     values:
                     - zk
               topologyKey: "kubernetes.io/hostname"
-      volume:
+      volumes:
         - name: datadir
           emptyDir: {}
       containers:
