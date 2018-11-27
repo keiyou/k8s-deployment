@@ -60,6 +60,9 @@ spec:
                     values:
                     - zk
               topologyKey: "kubernetes.io/hostname"
+      volume:
+        - name: datadir
+          emptyDir: {}
       containers:
       - name: k8szk
         imagePullPolicy: Always
@@ -141,9 +144,7 @@ spec:
       securityContext:
         runAsUser: 1000
         fsGroup: 1000
-  volume:
-    - name: datadir
-      emptyDir: {}
+
   # volumeClaimTemplates:
   # - metadata:
   #     name: datadir
