@@ -60,7 +60,7 @@ spec:
       containers:
       - name: k8skafka
         imagePullPolicy: Always
-        image: kafka-test
+        image: steins023/kafka-test
         resources:
           requests:
             memory: "1Gi"
