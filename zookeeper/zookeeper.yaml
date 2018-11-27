@@ -61,8 +61,8 @@ spec:
                     - zk
               topologyKey: "kubernetes.io/hostname"
       volumes:
-        - name: datadir
-          emptyDir: {}
+      - name: datadir
+        emptyDir: {}
       containers:
       - name: k8szk
         imagePullPolicy: Always
