@@ -60,9 +60,6 @@ spec:
                     values:
                     - zk
               topologyKey: "kubernetes.io/hostname"
-      volumes:
-      - name: datadir
-        emptyDir: {}
       containers:
       - name: k8szk
         imagePullPolicy: Always
@@ -144,12 +141,12 @@ spec:
       securityContext:
         runAsUser: 1000
         fsGroup: 1000
-
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: datadir
-  #   spec:
-  #     accessModes: [ "ReadWriteOnce" ]
-  #     resources:
-  #       requests:
-  #         storage: 10Gi
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+    spec:
+      storageClassName: rook-ceph-block
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
