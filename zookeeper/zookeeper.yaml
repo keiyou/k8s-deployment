@@ -141,9 +141,9 @@ spec:
       securityContext:
         runAsUser: 1000
         fsGroup: 1000
-    volumes:
-    - name: datadir
-      emptyDir: {}
+      volumes:
+      - name: datadir
+        emptyDir: {}
   # volumeClaimTemplates:
   # - metadata:
   #     name: datadir
