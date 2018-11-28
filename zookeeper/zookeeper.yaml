@@ -72,11 +72,8 @@ spec:
             configMapKeyRef:
                 name: zk-cm
                 key: jvm.heap
-        - name : ZK_TICK_TIME
-          valueFrom:
-            configMapKeyRef:
-                name: zk-cm
-                key: tick
+
+      
         - name : ZK_INIT_LIMIT
           valueFrom:
             configMapKeyRef:
