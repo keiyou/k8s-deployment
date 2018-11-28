@@ -157,8 +157,7 @@ spec:
           --override replica.fetch.backoff.ms=1000 \
           --override replica.fetch.max.bytes=1048576 \
           --override replica.fetch.response.max.bytes=10485760 \
-          --override reserved.broker.max.id=1000
-          --override inter.broker.protocol.version=0.11.0"
+          --override reserved.broker.max.id=1000"
         env:
         - name: KAFKA_HEAP_OPTS
           value : "-Xmx512M -Xms512M"
