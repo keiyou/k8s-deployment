@@ -63,7 +63,7 @@ spec:
       initContainers:
       - name: init-zk
         imagePullPolicy: Always
-        image: zookeeper
+        image: zookeeper:3.4
         env:
         - name : ZK_REPLICAS
           value: "3"
@@ -262,7 +262,7 @@ spec:
       containers:
       - name: zk-container
         imagePullPolicy: Always
-        image: zookeeper
+        image: zookeeper:3.4
         resources:
           requests:
             memory: "2Gi"
