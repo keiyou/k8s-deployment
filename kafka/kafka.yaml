@@ -173,7 +173,6 @@ spec:
             - sh
             - -c
             - "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093"
-        initialDelaySeconds: 30
       securityContext:
         runAsUser: 1000
         fsGroup: 1000
