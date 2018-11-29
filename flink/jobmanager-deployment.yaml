@@ -9,7 +9,7 @@ spec:
   type: NodePort
   ports:
   - name: ui
-    nodePort: 8081
+    nodePort: 30081
     port: 8081
     name: leader-election
   selector:
