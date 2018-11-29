@@ -282,6 +282,7 @@ spec:
 
       containers:
       - name: zookeeper
+        imagePullPolicy: Always
         image: zookeeper:3.4
         resources:
           requests:
