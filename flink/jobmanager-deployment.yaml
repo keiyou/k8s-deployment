@@ -1,10 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flink
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: flink-jobmanager-ui
-  labels:
-    app: zk-svc
+  namespace: flink
 spec:
   type: NodePort
   ports:
@@ -20,6 +23,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: flink-jobmanager
+  namespace: flink
 spec:
   ports:
   - name: rpc
@@ -36,6 +40,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flink-jobmanager
+  namespace: flink
 spec:
   replicas: 1
   selector:

@@ -1,10 +1,14 @@
 ---
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: zookeeper
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: zk-svc
-  labels:
-    app: zk-svc
+  namespace: zookeeper
 spec:
   ports:
   - port: 2888
@@ -19,8 +23,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zk-client-svc
-  labels:
-    app: zk-svc
+  namespace: zookeeper
 spec:
   ports:
   - port: 2181
@@ -32,6 +35,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: zk-cm
+  namespace: zookeeper
 data:
   clientPort: "2181"
   jvm.heap: "1G"
@@ -46,6 +50,7 @@ apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
   name: zk-pdb
+  namespace: zookeeper
 spec:
   selector:
     matchLabels:
@@ -55,7 +60,8 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: zk
+  name: zk-sts
+  namespace: zookeeper
 spec:
   serviceName: zk-svc
   replicas: 3
